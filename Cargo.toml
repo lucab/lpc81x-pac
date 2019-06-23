@@ -1,0 +1,30 @@
+[package]
+name = "lpc81x-pac"
+version = "0.1.0-dev"
+authors = ["Luca Bruno <lucab@debian.org>"]
+license = "MIT/Apache-2.0"
+repository = "https://github.com/lucab/lpc81x-rs"
+description = "Low-level register mappings for the NXP LPC81x series"
+edition = "2018"
+exclude = [ "/svd/" ]
+
+[dependencies]
+bare-metal = "^0.2.4"
+cortex-m = "^0.6.0"
+vcell = "^0.1.0"
+
+[dependencies.cortex-m-rt]
+optional = true
+version = "^0.6.7"
+
+[features]
+rt = ["cortex-m-rt", "cortex-m-rt/device"]
+
+[package.metadata.release]
+sign-commit = true
+upload-doc = false
+disable-publish = true
+disable-push = true
+pre-release-commit-message = "cargo: lpc81x-pac release {{version}}"
+pro-release-commit-message = "cargo: development version bump"
+tag-message = "lpc81x-pac {{version}}"
